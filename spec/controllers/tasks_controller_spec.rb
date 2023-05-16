@@ -169,4 +169,18 @@ RSpec.describe TasksController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    subject { delete :destroy }
+
+    it 'returns no_content' do
+      expect(subject).to have_http_status(:no_content)
+    end
+
+    it 'enqueues DeleteTasksWorker' do
+      subject
+
+      expect(DeleteTasksWorker).to have_enqueued_sidekiq_job
+    end
+  end
 end

@@ -31,6 +31,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    DeleteTasksWorker.perform_async
+
+    head :no_content
+  end
+
   private
 
   MEMBER_TASKS_PATTERN = %r{^/members/\d+/tasks(/new)?$}
