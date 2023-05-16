@@ -78,6 +78,8 @@ RSpec.describe TasksController, type: :controller do
   describe 'POST #create' do
     subject { post :create, params: params }
 
+    before { request.env['HTTP_REFERER']  = 'http://localhost:3000/tasks/new' }
+
     let(:params) do
       { task: { member_id: member.id, title: 'walk a dog' } }
     end
@@ -125,6 +127,8 @@ RSpec.describe TasksController, type: :controller do
 
   describe 'PUT #update' do
     subject { put :update, params: params }
+
+    before { request.env['HTTP_REFERER'] = 'http://localhost:3000/tasks' }
 
     let(:params) { { id: task.id } }
     let(:task) { create(:task) }
