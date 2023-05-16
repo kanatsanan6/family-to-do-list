@@ -1,0 +1,10 @@
+<% case type %>
+  <% when 'success' %>
+    <div class="w-screen border border-green-300 bg-green-200 text-green-600 p-5">
+      <%= msg %>
+    </div>
+  <% when :error %>
+    <div class="w-screen border border-red-300 bg-red-200 text-red-600 p-5">
+      <%= msg %>
+    </div>
+<% end %>
