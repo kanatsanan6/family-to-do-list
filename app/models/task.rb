@@ -10,6 +10,8 @@
 #  member_id  :bigint           not null
 #
 class Task < ApplicationRecord
+  paginates_per 5
+
   belongs_to :member, counter_cache: true
 
   enum state: {

@@ -26,7 +26,7 @@ RSpec.describe MembersController, type: :controller do
 
     context 'with pagination' do
       let(:members) { create_list(:member, 11) }
-      let(:params) { { page:2 } }
+      let(:params) { { page: 2 } }
 
       before { members }
 
@@ -70,6 +70,10 @@ RSpec.describe MembersController, type: :controller do
 
     it 'returns redirect' do
       expect(subject).to have_http_status(:redirect)
+    end
+
+    it 'redirects to root url' do
+      expect(subject).to redirect_to(root_url)
     end
 
     it 'creates a new member' do
