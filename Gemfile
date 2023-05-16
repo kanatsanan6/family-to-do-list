@@ -25,6 +25,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate', '~> 3.2'
   gem 'rubocop', '~> 1.50'
   gem 'rubocop-performance', '~> 1.5'
   gem 'rubocop-rails', '~> 2.19'
