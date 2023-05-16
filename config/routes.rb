@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   end
 
   resources :tasks, only: %i[index new create update]
+
+  namespace :api do
+    namespace :v1 do
+      resources :tasks, only: :index
+    end
+  end
 end
