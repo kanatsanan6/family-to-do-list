@@ -14,6 +14,7 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 gem 'redis', '~> 5.0'
 gem 'sidekiq', '~> 7.1'
+gem 'sidekiq-cron', '~> 1.10'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.29'
@@ -43,3 +44,4 @@ group :test do
   gem 'shoulda-matchers', '~> 5.3'
   gem 'simplecov', '~> 0.22.0'
 end
+
