@@ -6,6 +6,7 @@ ruby '3.2.2'
 gem 'active_model_serializers', '~> 0.10.13'
 gem 'bootsnap', require: false
 gem 'config', '~> 4.2'
+gem 'dotenv-rails', '~> 2.8'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
@@ -23,7 +24,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '~> 2.8'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'pry-byebug', '~> 3.10'
   gem 'rspec-rails', '~> 6.0'
