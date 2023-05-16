@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       resources :tasks, only: :index
     end
   end
+
+  mount Sidekiq::Web => '/sidekiq'
 end
