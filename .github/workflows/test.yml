@@ -1,0 +1,46 @@
+name: Run Rspec
+
+on: [push]
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
+
+      - name: Install dependent libraries
+        run: sudo apt-get install libpq-dev
+
+      - name: Create DB
+        env:
+          RAILS_ENV: test
+          DATABASE_PASSWORD: postgres
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+          DATABASE_PASSWORD: postgres
+        run: |
+          bundle exec rspec
