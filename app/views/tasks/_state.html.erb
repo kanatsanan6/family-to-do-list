@@ -1,0 +1,14 @@
+<% case task.state %>
+  <% when 'completed' %>
+    <div class="w-fit py-1 px-2 rounded-lg border border-green-300 bg-green-200 text-green-600">
+      <%= task.state %>
+    </div>
+  <% when 'incompleted' %>
+    <div class="w-fit py-1 px-2 rounded-lg border border-rose-300 bg-rose-200 text-rose-600">
+      <%= task.state %>
+    </div>
+  <% when 'delayed' %>
+    <div class="w-fit py-1 px-2 rounded-lg border border-gray-300 bg-gray-200 text-gray-600">
+      <%= task.state %>
+    </div>
+<% end %>

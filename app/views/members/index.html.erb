@@ -1,7 +1,11 @@
 <div class="space-y-8">
   <div class="flex items-center justify-between">
     <h1 class="text-2xl font-bold">Family Member Dashboard</h1>
-    <p><%= link_to 'Add Family Member', new_member_url, class: "text-blue-600 underline" %></p>
+    <div class="flex justify-around">
+      <p><%= link_to 'Add Family Member', new_member_url, class: "text-blue-600 underline" %></p>
+      <p class="px-2">|</p>
+      <p><%= link_to 'View All Tasks', tasks_url, class: "text-blue-600 underline" %></p>
+    </div>
   </div>
 
   <div class="w-full">
