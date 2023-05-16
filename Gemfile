@@ -5,6 +5,7 @@ ruby '3.2.2'
 
 gem 'active_model_serializers', '~> 0.10.13'
 gem 'bootsnap', require: false
+gem 'config', '~> 4.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
