@@ -19,6 +19,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.8'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'pry-byebug', '~> 3.10'
+  gem 'rspec-rails', '~> 6.0'
 end
 
 group :development do
@@ -26,4 +29,10 @@ group :development do
   gem 'rubocop-performance', '~> 1.5'
   gem 'rubocop-rails', '~> 2.19'
   gem 'web-console'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 2.0'
+  gem 'shoulda-matchers', '~> 5.3'
+  gem 'simplecov', '~> 0.22.0'
 end
