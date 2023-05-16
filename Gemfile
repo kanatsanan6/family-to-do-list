@@ -6,6 +6,7 @@ ruby '3.2.2'
 gem 'bootsnap', require: false
 gem 'importmap-rails'
 gem 'jbuilder'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
@@ -34,6 +35,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 2.0'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'shoulda-matchers', '~> 5.3'
   gem 'simplecov', '~> 0.22.0'
 end
