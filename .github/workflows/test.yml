@@ -41,7 +41,7 @@ jobs:
       - name: Create DB
         env:
           RAILS_ENV: test
-          DATABASE_PASSWORD: postgres
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: |
           bundle exec rails db:create
           bundle exec rails db:schema:load
@@ -49,6 +49,6 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-          DATABASE_PASSWORD: postgres
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: |
           bundle exec rspec

@@ -3,11 +3,11 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Sidekiq.configure_server do |config|
-  config.redis = { url: $redis.id }
+  config.redis = { url: "#{Settings.redis.url}/0" }
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { url: $redis.id }
+  config.redis = { url: "#{Settings.redis.url}/0" }
 end
 
 Sidekiq::Web.use ActionDispatch::Cookies
