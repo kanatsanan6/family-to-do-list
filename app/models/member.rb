@@ -11,5 +11,7 @@
 #  updated_at  :datetime         not null
 #
 class Member < ApplicationRecord
+  has_many :tasks, dependent: :destroy
+
   validates :name, presence: true
 end
