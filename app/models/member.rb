@@ -11,6 +11,8 @@
 #  updated_at  :datetime         not null
 #
 class Member < ApplicationRecord
+  paginates_per 10
+
   has_many :tasks, dependent: :destroy
 
   validates :name, presence: true
