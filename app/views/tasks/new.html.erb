@@ -1,0 +1,33 @@
+<div class="flex items-center justify-center w-full">
+  <div class="border border-black rounded-md p-8 flex flex-col space-y-5">
+    <h1 class="text-2xl font-bold">Add Task</h1>
+    <%= form_with model: @task do |form| %>
+      <div class="flex justify-between items-center h-8">
+        <%= form.label :title, class: "text-sm font-bold" %>
+        <div class="text-red-600 text-xs">
+          <%= @task.errors.full_messages_for(:title).first %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="flex justify-between items-center h-8">
+        <%= form.label :member, class: "text-sm font-bold" %>
+        <div class="text-red-600 text-xs">
+          <%= @task.errors.full_messages_for(:member).first %>
+        </div>
+      </div>
+
+      <div class="w-full">
+        <%= form.collection_select :member_id, Member.order(:name), :id, :name, { include_blank: 'Select member' }, { class: 'w-full' } %>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <%= link_to "Back", tasks_url, class: "bg-gray-400 text-white py-2 rounded-md mt-4 text-center w-full" %>
+        <%= form.submit "Save", class: "cursor-pointer bg-green-600 rounded-md text-white mt-4 text-center w-full" %>
+      </div>
+    <% end %>
+  </div>
+</div>
