@@ -173,8 +173,12 @@ RSpec.describe TasksController, type: :controller do
   describe 'DELETE #destroy' do
     subject { delete :destroy }
 
-    it 'returns no_content' do
-      expect(subject).to have_http_status(:no_content)
+    it 'returns redirect' do
+      expect(subject).to have_http_status(:redirect)
+    end
+
+    it 'redirects to root url' do
+      expect(subject).to redirect_to(root_url)
     end
 
     it 'enqueues DeleteTasksWorker' do

@@ -34,7 +34,7 @@ class TasksController < ApplicationController
   def destroy
     DeleteTasksWorker.perform_async
 
-    head :no_content
+    redirect_to root_url, success: 'Delete all tasks'
   end
 
   private
