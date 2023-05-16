@@ -1,0 +1,17 @@
+<div class="flex items-center justify-center w-full">
+  <div class="border border-black rounded-md  w-[350px] p-8 flex flex-col space-y-5">
+    <h1 class="text-2xl font-bold">Add Task to <%= @member.name %></h1>
+    <%= form_with model: [@member, @member.tasks.build] do |form| %>
+      <%= render 'tasks/form', task: @task, form: form %>
+
+      <div class="w-full">
+        <%= form.collection_select :member_id, [@member], :id, :name, { selected: @task.member_id }, { class: 'w-full cursor-not-allowed' } %>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <%= link_to "Back", member_tasks_url(@member), class: "bg-gray-400 text-white py-2 rounded-md mt-4 text-center w-full" %>
+        <%= form.submit "Save", class: "cursor-pointer bg-green-600 rounded-md text-white mt-4 text-center w-full" %>
+      </div>
+    <% end %>
+  </div>
+</div>

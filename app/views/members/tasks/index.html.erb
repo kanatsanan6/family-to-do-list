@@ -1,8 +1,8 @@
 <div class="space-y-8">
   <p class="cursor-pointer"><%= link_to '<- Back to Dashboard', root_url %></p>
   <div class="flex items-center justify-between">
-    <h1 class="text-2xl font-bold">All Tasks</h1>
-    <p><%= link_to 'Add Task', new_task_url , class: "text-blue-600 underline" %></p>
+    <h1 class="text-2xl font-bold">Tasks assigned to <%= @member.name %></h1>
+    <p><%= link_to 'Add task', new_member_task_url(@member) , class: "text-blue-600 underline" %></p>
   </div>
 
   <div class="w-full">
@@ -11,7 +11,6 @@
         <tr>
           <th scope="col" class="w-2/5 px-6 py-3">Task</th>
           <th scope="col" class="w-1/5 px-6 py-3">Status</th>
-          <th scope="col" class="w-1/5 px-6 py-3">Family Member</th>
           <th scope="col" class="w-1/5 px-6 py-3"></th>
         </tr>
       </thead>
@@ -20,7 +19,6 @@
           <tr class="border-b">
             <td class="px-6 py-4"><%= task.title %></td>
             <td class="px-6 py-4"><%= render 'tasks/state', task: task %></td>
-            <td class="px-6 py-4"><%= task.member.name %></td>
             <td class="px-6 py-4">
               <% if !task.completed? %>
                 <%= button_to 'Mark as complete', { action: 'update', id: task.id }, method: :put, class: "text-blue-600 underline" %>

@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @task = Task.new(create_task_params)
 
     if @task.save
-      redirect_to tasks_url, success: 'Create task successfully'
+      redirect_to redirect_path, success: 'Create task successfully'
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,13 +25,22 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     if @task.completed!
-      redirect_to tasks_url, success: 'Mark task as completed'
+      redirect_to redirect_path, success: 'Mark task as completed'
     else
-      redirect_to tasks_url, error: @task.errors.full_messages
+      redirect_to redirect_path, error: @task.errors.full_messages
     end
   end
 
   private
+
+  MEMBER_TASKS_PATTERN = %r{^/members/\d+/tasks(/new)?$}
+
+  def redirect_path
+    path = URI(request.referer).path
+    return member_tasks_url(@member) if MEMBER_TASKS_PATTERN.match?(path)
+
+    tasks_url
+  end
 
   def order_by_state(records)
     records.order(state: :asc)

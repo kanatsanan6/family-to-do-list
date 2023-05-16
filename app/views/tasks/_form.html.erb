@@ -1,0 +1,18 @@
+<div class="flex justify-between items-center h-8">
+  <%= form.label :title, class: "text-sm font-bold" %>
+  <div class="text-red-600 text-xs">
+    <%= task.errors.full_messages_for(:title).first %>
+  </div>
+</div>
+
+<div>
+  <%= form.text_field :title, class: "form-control w-full" %>
+</div>
+
+<div class="flex justify-between items-center h-8">
+  <%= form.label :member, class: "text-sm font-bold" %>
+  <div class="text-red-600 text-xs">
+    <%= task.errors.full_messages_for(:member).first %>
+  </div>
+</div>
+
