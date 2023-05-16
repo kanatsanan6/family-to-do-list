@@ -5,6 +5,8 @@
       <p><%= link_to 'Add Family Member', new_member_url, class: "text-blue-600 underline" %></p>
       <p class="px-2">|</p>
       <p><%= link_to 'View All Tasks', tasks_url, class: "text-blue-600 underline" %></p>
+      <p class="px-2">|</p>
+      <%= button_to 'Delete all tasks', { action: 'destroy', controller: 'tasks' }, method: :delete, class: "text-red-600 underline" %>
     </div>
   </div>
 

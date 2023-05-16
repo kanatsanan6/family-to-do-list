@@ -31,6 +31,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    DeleteTasksWorker.perform_async
+
+    redirect_to root_url, success: 'Delete all tasks'
+  end
+
   private
 
   MEMBER_TASKS_PATTERN = %r{^/members/\d+/tasks(/new)?$}

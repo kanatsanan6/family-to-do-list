@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[index new create update], module: :members
   end
 
+  resource :tasks, only: :destroy
   resources :tasks, only: %i[index new create update]
 
   namespace :api do
