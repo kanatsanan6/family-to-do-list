@@ -52,3 +52,11 @@ bin/rails server
 ```bash
 bundle exec sidekiq
 ```
+
+## API ENDPOINT
+
+- `GET /api/v1/tasks` -> Get outstanding task of each member
+
+```basb
+curl --location 'https://family-to-do-list.herokuapp.com/api/v1/tasks'
+```
