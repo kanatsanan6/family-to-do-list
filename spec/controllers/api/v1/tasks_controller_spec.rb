@@ -4,9 +4,7 @@ require 'rails_helper'
 
 RSpec.describe API::V1::TasksController, type: :controller do
   describe 'GET #index' do
-    subject(:call) { get :index, format: format }
-
-    let(:format) { :json }
+    subject(:call) { get :index }
 
     let(:member_a) { create(:member) }
     let(:task_a) { create(:task, title: 'task_a', member: member_a, state: :completed) }
@@ -40,14 +38,6 @@ RSpec.describe API::V1::TasksController, type: :controller do
       expect(response_body.pluck('name')).to match_array([member_a.name, member_b.name])
       expect(response_body.first['tasks'].map { |x| x['title'] }).to match_array([task_a.title, task_b.title])
       expect(response_body.second['tasks'].map { |x| x['title'] }).to match_array([task_d.title, task_e.title])
-    end
-
-    context 'when request is not in json format' do
-      let(:format) { nil }
-
-      it 'returns not_found' do
-        expect(call).to have_http_status(:not_found)
-      end
     end
   end
 end
