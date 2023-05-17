@@ -1,24 +1,54 @@
-# README
+# CMS-Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## [LiveDemo](https://family-to-do-list.herokuapp.com/)
 
-Things you may want to cover:
+## Prerequisite
 
-* Ruby version
+- PostgreSQL
+- Redis
 
-* System dependencies
+- ruby version 3.2.2
 
-* Configuration
+```bash
+rbenv install 3.2.2
+```
 
-* Database creation
+- rails 7
 
-* Database initialization
+```bash
+gem install rails
+```
 
-* How to run the test suite
+## Project setup
 
-* Services (job queues, cache servers, search engines, etc.)
+- copy env file and change env value if needed
 
-* Deployment instructions
+```bash
+cp .env.example .env
+```
 
-* ...
+- install dependencies
+
+```bash
+bundle install
+```
+
+- create and migrate database
+
+```bash
+bundle exec rails db:create db:migrate
+```
+
+## Start an application
+
+- Start Application
+
+```bash
+bin/rails server
+```
+
+- Start Sidekiq
+
+```bash
+bundle exec sidekiq
+```
